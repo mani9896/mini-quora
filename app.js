@@ -9,5 +9,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000 || PORT, function (req, res) {
-  console.log("Running ");
+  console.log("Running on Server");
 });
