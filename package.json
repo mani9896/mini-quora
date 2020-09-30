@@ -10,5 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mani9896/mini-quora.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mani9896/mini-quora/issues"
+  },
+  "homepage": "https://github.com/mani9896/mini-quora#readme"
 }
