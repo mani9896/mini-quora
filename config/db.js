@@ -7,18 +7,4 @@ const db = mysql.createConnection({
   database: "firstDB",
 });
 
-const connectDB = async () => {
-  try {
-    await db.connect((err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Connected ");
-      }
-    });
-  } catch (err) {
-    console.log(err.msg);
-  }
-};
-
-module.exports = connectDB;
+module.exports = db;
