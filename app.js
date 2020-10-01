@@ -3,11 +3,12 @@ const mysql = require("mysql");
 const app = express();
 const connectDB = require("./config/db.js");
 const PORT = process.env.PORT;
-
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 connectDB();
 
 app.get("/", (req, res) => {
-  res.send("Welcome to mini");
+  res.render("Home");
 });
 
 app.listen(3000 || PORT, function (req, res) {
