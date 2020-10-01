@@ -7,14 +7,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 const name = "Mani";
-//Calling Connect DB to connect
-db.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Connected ");
-  }
-});
 
 //render home.ejs with passing a variable
 app.get("/", (req, res) => {
