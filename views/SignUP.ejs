@@ -40,18 +40,51 @@ button
     width: 42em
 }	
 	
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 </style>
 
 
 </head>
 <body >
+<%if(msg){%>
+	<div class="alert">
+		<span class="closebtn">&times;</span>  
+		<strong> <%=msg%></strong>
+	  </div>
+<%}%>
 
 <h1 style="text-align: center;font-family: sans-serif;">SignUp </h1>
 
 <p style="text-align: center;"></p>
 
 <div class="form">
-<form method="POST">
+<form method="POST" action="/user/signup">
 <div class="name" style="background:#dad7d7;">
 <label for="firstname" >Name <span style="color:#ab0707"> * </span><br>
 <input type="name" name="firstname" placeholder="First" required="firstname">	<input type="name" name="Lastname" placeholder="Last" required="Lastname"></div><br>
@@ -65,6 +98,17 @@ Password <span style="color:#ab0707"> * </span><br>
 </div>
 
 <div  style="background:#dad7d7; text-align:right;height:80px;margin-bottom: 0px;padding: 40px 50px 0 0;box-sizing: border-box;color:#656363 ;  position: fixed;bottom: 0 ; width: 100%" >Register</div>
-
+<script>
+	var close = document.getElementsByClassName("closebtn");
+	var i;
+	
+	for (i = 0; i < close.length; i++) {
+	  close[i].onclick = function(){
+		var div = this.parentElement;
+		div.style.opacity = "0";
+		setTimeout(function(){ div.style.display = "none"; }, 600);
+	  }
+	}
+	</script>
 </body>
 </html>
