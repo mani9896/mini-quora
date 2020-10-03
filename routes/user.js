@@ -1,36 +1,34 @@
 //All backend related to Users
-
+//Basic NodejS setup
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
 const bodyParser = require("body-parser");
-const bcrypt = require("bcryptjs");
 const db = require("../config/db.js");
 const PORT = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 const router = express.Router();
-const mid = (req, res, next) =>
-  db.query("SELECT * FROM user WHERE email = ?", req.body.Email, function (
-    error,
-    results,
-    fields
-  ) {
-    if (results.length > 0) {
-      res.render("SignUP", { msg: "USER ALREADY REGISTERED" });
-      ifUserfound = true;
-    } else {
-      next();
-    }
-  });
+
+//For Encryption
+const bcrypt = require("bcryptjs");
+
+//To Check if user already exists
+const checkIfUserExists = require("./middleware/registerMiddleware");
+
 router.get("/login", (req, res) => {
   res.render("Home", { name: "hjhgh" });
 });
+
+//GET user/signup
 router.get("/signup", (req, res) => {
   res.render("SignUP", { msg: null });
 });
-router.post("/signup", mid, async (req, res) => {
+
+//Handle Registering Users
+//POST user/signup
+router.post("/signup", checkIfUserExists, async (req, res) => {
   var today = new Date();
   var users = {
     name: req.body.firstname,
@@ -42,9 +40,7 @@ router.post("/signup", mid, async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   users.password = await bcrypt.hash(req.body.password, salt);
 
-  var ifUserfound = false;
-
-  if (!ifUserfound) {
+  {
     await db.query("INSERT INTO user SET ?", users, function (
       error,
       results,
