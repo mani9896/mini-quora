@@ -73,10 +73,12 @@ button
 </head>
 <body >
 <%if(msg){%>
+	<%for(var i=0;i<msg.length;i++){%>
 	<div class="alert">
 		<span class="closebtn">&times;</span>  
-		<strong> <%=msg%></strong>
+		<strong> <%=msg[i]%></strong>
 	  </div>
+	<%}%>
 <%}%>
 
 <h1 style="text-align: center;font-family: sans-serif;">SignUp </h1>
