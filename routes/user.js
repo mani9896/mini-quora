@@ -18,7 +18,7 @@ const bcrypt = require("bcryptjs");
 const checkIfUserExists = require("./middleware/registerMiddleware");
 
 router.get("/login", (req, res) => {
-  res.render("Home", { name: "hjhgh" });
+  res.render("Login", { msg: null });
 });
 
 //GET user/signup
