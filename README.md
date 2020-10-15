@@ -5,5 +5,4 @@ mini-quora
 #used flexbox to design the navigation bar
 
 
-<h2> I have setup here signup backend with alerts</h2>
-PS: Dont make any PR in this branch
+
