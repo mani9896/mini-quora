@@ -5,4 +5,4 @@ mini-quora
 #used flexbox to design the navigation bar
 
 
-<h1> Try to add maximum css in css folder whith name as same of the html where used</h1>
+

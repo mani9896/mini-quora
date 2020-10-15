@@ -1,9 +1,12 @@
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
+const ejs = require("ejs");
 const db = require("./config/db.js");
 const PORT = process.env.PORT;
+const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json({ extended: false }));
 const name = "Mani";
