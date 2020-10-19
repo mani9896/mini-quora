@@ -1,16 +1,16 @@
 /* CSS HERE */
 
-.body{
-	margin: 0px;
-	margin-top: 5px;
-	padding: 20px;
+.body {
+  margin: 0px;
+  margin-top: 5px;
+  padding: 20px;
 }
 
-.profile_picture{
-	margin-left: 4px;
+.profile_picture {
+  margin-left: 4px;
 }
 
-.top_nav {	
+.top_nav {
   overflow: hidden;
   background-color: #e9e9e9;
 }
@@ -24,64 +24,58 @@
 	align-self: center;
 	position: relative;
 	}*/
-.container{
-	display: flex;
-	justify-content: space-between;
-	list-style: none;
-	margin: 0;
-	list-style: none;
-	padding-bottom: 0px;
-	align-items: center;
-	height: 50px;
-
-
-}	
+.container {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  list-style: none;
+  padding-bottom: 0px;
+  align-items: center;
+  height: 50px;
+}
 @media only screen and (max-width: 800px) {
-    .container {
-        font-size: 0.5em;
-        padding: 0;
-    }
-    li{
-    	margin-top: 7.3px;
-    }
-    .zone2{
-    	justify-content: center;
-    	margin-left: 60px;
-
-    }
+  .container {
+    font-size: 0.5em;
+    padding: 0;
+  }
+  li {
+    margin-top: 7.3px;
+  }
+  .zone2 {
+    justify-content: center;
+    margin-left: 60px;
+  }
 }
-ul{
-	display: flex;
-	list-style: none;
-
+ul {
+  display: flex;
+  list-style: none;
 }
-li{
-	padding-right: 20px
+li {
+  padding-right: 20px;
 }
-.zone_nav{
-	background-color: rgb(71, 61, 61,10%);
-	border-radius:4px;
-    border:1px solid #bbb;
-    transition: all 0.3s linear;
-    height: 55px;
-    margin-bottom: 25px;
+.zone_nav {
+  background-color: rgb(71, 61, 61, 10%);
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  transition: all 0.3s linear;
+  height: 55px;
+  margin-bottom: 25px;
 }
 
-.card{
-	width: 290px;
-	padding: 5px;
-
+.card {
+  width: 290px;
+  padding: 5px;
 }
 
 /* =========== USED CSS GRID TO ORAGANISE GRID ============= */
-.card_grid{
-	display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 20px;
-    justify-content: center;
-    padding-left: 10%;
+.card_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  justify-content: center;
+  padding-left: 10%;
 }
-
 
 /*
 .grid-wrapper {
@@ -97,13 +91,13 @@ li{
     margin: 20px;
 }
 
+
 .box > img {
     width: 100%;
 }*/
 
-
-footer{
-	background-color: rgb(71, 61, 61,5%);
-	margin-top: 30px;
-	text-align: center;
+footer {
+  background-color: rgb(71, 61, 61, 5%);
+  margin-top: 30px;
+  text-align: center;
 }

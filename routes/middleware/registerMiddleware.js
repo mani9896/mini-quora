@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const db = require("../../config/db.js");
 
 const checkIfUserExists = async (req, res, next) => {
+  var fail=false;
   var msg = [];
   await db.query(
     "SELECT * FROM user WHERE email = ?",
@@ -18,7 +19,7 @@ const checkIfUserExists = async (req, res, next) => {
       ) {
         if (results.length > 0) {
           msg.push("ALREADY HERE");
-          res.render("SignUP", { msg: msg });
+          res.render("Home", { msg: msg,fail:fail,display1:"none",display2:"block" });
           ifUserfound = true;
         } else {
           next();

@@ -9,11 +9,11 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json({ extended: false }));
-const name = "Mani";
+const name = "";
 
 //render home.ejs with passing a variable
 app.get("/", (req, res) => {
-  res.render("Home", { name: name });
+  res.render("Home", { msg: null ,display1:"none",display2:"none"});
 });
 app.use("/user", require("./routes/user"));
 app.listen(3000 || PORT, function (req, res) {

@@ -1,12 +1,14 @@
-<!-- SignUp -->
-<!DOCTYPE html>
-<html>
-<head>
-	<title>
-		SignUp
-	</title>
 
-<style type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mini-Quora</title>
+
+    <style type="text/css">
 
 body
 {
@@ -49,7 +51,7 @@ button
   margin-bottom: 15px;
 }
 
-.alert.success {background-color: #4CAF50;}
+.alert.success {background-color: #26a12a;}
 .alert.info {background-color: #2196F3;}
 .alert.warning {background-color: #ff9800;}
 
@@ -69,37 +71,73 @@ button
 }
 </style>
 
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="/css/Style.css">
+    <link rel="stylesheet" href="/css/Style2.css">
+    <link rel="stylesheet" href="/css/signup.css">
 
 </head>
-<body >
-<%if(msg){%>
-	<%for(var i=0;i<msg.length;i++){%>
-	<div class="alert">
-		<span class="closebtn">&times;</span>  
-		<strong> <%=msg[i]%></strong>
-	  </div>
-	<%}%>
-<%}%>
 
-<h1 style="text-align: center;font-family: sans-serif;">SignUp </h1>
+<body>
+  
+  <%if(msg&&!fail){%>
+    <%for(var i=0;i<msg.length;i++){%>
+    <div class= "alert" >
+      <span class="closebtn">&times;</span>  
+      <strong> <%=msg[i]%></strong>
+    </div>
+    <%}%>
+  <%}%>
+  <%if(msg&&fail){%>
+    <%for(var i=0;i<msg.length;i++){%>
+    <div class= "success" >
+      <span class="closebtn">&times;</span>  
+      <strong> <%=msg[i]%></strong>
+    </div>
+    <%}%>
+  <%}%>
+  
+<div class="form" id="signin" style="display: <%=display2%>">
+  
+    <div class="form_heading">
+        <div class="imgcontainer">
+          <a href="/">
+        <span class="close" title="Cancel">&times;</a></span></div>
+<h1 style="text-align: center;font-family: sans-serif;">Sign In </h1>
 
-<p style="text-align: center;"></p>
-
-<div class="form">
-<form method="POST" action="/user/signup">
-<div class="name" style="background:#dad7d7;">
-<label for="firstname" >Name <span style="color:#ab0707"> * </span><br>
-<input type="name" name="firstname" placeholder="First" required="firstname">	<input type="name" name="Lastname" placeholder="Last" required="Lastname"></div><br>
-Email <span style="color:#ab0707"> * </span><br></label>
-<input type="Email" name="Email" placeholder="Email" required="Email"><br><br>
-Password <span style="color:#ab0707"> * </span><br>
-<input type="password" name="password" placeholder="password" required="password"><br><br>
-<button type="submit" value="SignUp">SignUp</button> <br><br>
-
-</form>
+<p style="text-align: center;">Thankyou for your interest. Please register to become a part of our Blogging Family!</p>
 </div>
 
-<div  style="background:#dad7d7; text-align:right;height:80px;margin-bottom: 0px;padding: 40px 50px 0 0;box-sizing: border-box;color:#656363 ;  position: fixed;bottom: 0 ; width: 100%" >Register</div>
+
+<form id="sign_up" action="/user/signup" method="POST" name="sign_up">
+        <div class="name" style="background:#79b0ab;padding-top:10px;">
+            <label for="username"> Username <span style="color:#ab0707"> * </span> </label><br>
+            <input type="text" name="username" required style="width:200px"/> <br>
+            <label for="name">Name <span style="color:#ab0707"> * </span> </label><br>
+                <input type="text" name="firstname" pattern="[A-Za-z].{1,}" placeholder="First" style="width:200px" required />      <input type="text" name="name" pattern="[A-Za-z].{1,}"  placeholder="Last" style="width:200px"/></div><br>
+                
+        <label for="email"> Email <span style="color:#ab0707"> * </span> </label><br>
+            <input type="email" name="Email" required style="width:200px"/> <br><br>
+            <table><tr>
+        <td><label for="password">  Password <span style="color:#ab0707"> * </span> </label></td><td> <label for="password">  Re-enter your Password <span style="color:#ab0707"> * </span> </label></td></tr>
+            <tr><td><input type="password" name="password"  minlength="8" maxlength="16"  required style="width:200px" /> </td><td><input type="password" name="password"  minlength="8" maxlength="16" required style="width:200px" /> </td></tr></table><br><br>
+     
+        <div style="background:#79b0ab;padding-top:10px;">
+        <label for='interested_domains'> In which domain are you interested?</label><br>
+            <table>
+                <tr> <td><input type="checkbox" name="interested_domains" value="science"  id="science"><label for="science" style="font-weight: normal;"> Science </label></td>
+                <td><input type="checkbox" name="interested_domains" value="commerce" id="commerce"><label for="commerce" style="font-weight: normal;"> Commerce </label><br></td></tr>
+                <tr><td><input type="checkbox" name="interested_domains" value="technology" id="technology"><label for="technology" style="font-weight: normal;"> Technology </label></td>
+                <td><input type="checkbox" name="interested_domains" value="food" id="food"><label for="food" style="font-weight: normal;"> Food </label></td></tr>
+                <tr><td><input type="checkbox" name="interested_domains" value="any_other" id="any_other"><label for="any_other" style="font-weight: normal;"> Any other </label></td></tr>
+
+            </table></div>
+                
+        
+  
+        <center><button class="form_button" type="submit" value="submit">SignUp</button></center>
+        </form>
+</div>
 <script>
 	var close = document.getElementsByClassName("closebtn");
 	var i;

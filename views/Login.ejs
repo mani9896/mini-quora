@@ -1,116 +1,54 @@
-<!-- LogIn -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>
-		Login
-	</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mini-Quora</title>
 
-<style type="text/css">
-
-body
-{
-	background-color: rgb(170, 169, 169,20%);
-}
-
-input
-{
-	margin-right: 10px;
-}
-
-button
-{
-	background:#3c9ce8;
-	text-align: center;
-	color:white;
-	border-color: #3c9ce8;
-	height:35px;
-	width:70px;
-    margin:10px;
-    cursor: pointer;
-}
-
-
-
-
-.form
-{
-	margin-left: auto;
-    margin-right: auto;
-    width: 42em
-}	
-
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-  opacity: 1;
-  transition: opacity 0.6s;
-  margin-bottom: 15px;
-}
-
-.alert.success {background-color: #4CAF50;}
-.alert.info {background-color: #2196F3;}
-.alert.warning {background-color: #ff9800;}
-
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
-	
-</style>
-
+    
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="/css/Style.css">
+    <link rel="stylesheet" href="/css/Style2.css">
+    <link rel="stylesheet" href="/css/signup.css">
 
 </head>
-<body >
-	<%if(msg){%>
-		<div class="alert success">
-			<span class="closebtn">&times;</span>  
-			<strong> <%=msg%></strong>
-		  </div>
-	<%}%>
+
+<body>
+<div class="form" id="login" style="display: <%=display1%>">
+    <div class="form_heading">
+        <div class="imgcontainer">
+            <a href="/">
+        <span class="close" title="Cancel">&times;</a></span>
+    </div>
 <h1 style="text-align: center;font-family: sans-serif;">Login </h1>
 
-<p style="text-align: center;"></p>
-
-<div class="form">
-<form method="POST">
- <!--   
-<div class="name" style="background:#dad7d7;">
-<label for="firstname" >Name <span style="color:#ab0707"> * </span><br>
-<input type="name" name="firstname" placeholder="First" required="firstname">	<input type="name" name="Lastname" placeholder="Last" required="Lastname"></div><br>
--->
-Email <span style="color:#ab0707"> * </span><br></label>
-<input type="Email" name="Email" placeholder="Email" required="Email"><br><br>
-Password <span style="color:#ab0707"> * </span><br>
-<input type="password" name="password" placeholder="password" required="password"><br><br>
-<button type="submit" value="Login">Login</button> <br><br>
-
-</form>
+<p style="text-align: center;">Welcome Dear User!</p>
 </div>
 
-<div  style="background:#dad7d7; text-align:right;height:80px;margin-bottom: 0px;padding: 40px 50px 0 0;box-sizing: border-box;color:#656363 ;  position: fixed;bottom: 0 ; width: 100%" >Login</div>
-<script>
-	var close = document.getElementsByClassName("closebtn");
-	var i;
-	
-	for (i = 0; i < close.length; i++) {
-	  close[i].onclick = function(){
-		var div = this.parentElement;
-		div.style.opacity = "0";
-		setTimeout(function(){ div.style.display = "none"; }, 600);
-	  }
-	}
-	</script>
+<form id="login" action="" method="POST" name="login" >
+        <div class="name"  style="background:#79b0ab;padding-top:10px;">
+           <center> <label for="username"> Username <span style="color:#ab0707"> * </span>
+         </label>
+            <br>
+            <input type="text" name="username" required style="width:200px"/></center> <br>
+            
+          <center>     
+        <label for="email"> Email <span style="color:#ab0707"> * </span> </label><br>
+            <input type="email" name="email" required style="width:200px"/> <br><br></center> 
+        </div>
+            <center>
+        <label for="password">  Password <span style="color:#ab0707"> * </span> </label>
+            <br><input type="password" name="postion" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])" minlength="8" maxlength="16"  required style="width:200px" /> <br><br></center>
+     
+        
+                
+        
+  
+        <center><button class="form_button" type="submit" value="submit">Login</button></center>
+        </form>
+    </div>
 </body>
 </html>
