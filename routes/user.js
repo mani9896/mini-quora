@@ -17,15 +17,6 @@ const bcrypt = require("bcryptjs");
 //To Check if user already exists
 const checkIfUserExists = require("./middleware/registerMiddleware");
 
-// router.get("/login", (req, res) => {
-//   res.render("Login", { msg: null });
-// });
-
-//GET user/signup
-// router.get("/signup", (req, res) => {
-//   res.render("SignUP", { msg: null });
-// });
-
 //Handle Registering Users
 //POST user/signup
 router.post("/signup", checkIfUserExists, async (req, res) => {
