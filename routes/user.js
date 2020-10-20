@@ -58,10 +58,12 @@ router.get("/login",function(req,res){
 });
 
 router.get("/signup",function(req,res){
-
  
   res.render("Home",{msg:null,display1:"none",display2:"block"})
 });
+
+
+//Handle POST user Login
 module.exports = router;
 
 // var isMatch = await bcrypt.compare(password, user.password);
