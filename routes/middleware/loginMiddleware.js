@@ -17,8 +17,7 @@ const checkIfUserExists = async (req, res, next) => {
           next();
         }
       });
-    }
-  );
+    
 };
 
 module.exports = checkIfUserExists;

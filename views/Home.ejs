@@ -48,7 +48,12 @@
             <div>
                 <ul class="nav-items">
                 <li class="nav-link">
+                    <%if(!logged){%>
                 <a href="/user/login" > Login </a></li>
+                <%}%>
+                <%if(logged){%>
+                    <a href="/user/logout" > Logout </a></li>
+                    <%}%>
                 <li class="nav-link" >
                     <a href="/user/signup"> Sign-in </a></li>
                 </ul>

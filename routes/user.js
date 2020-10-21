@@ -3,8 +3,10 @@
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
+const session = require("express-session");
 const bodyParser = require("body-parser");
 const db = require("../config/db.js");
+
 const PORT = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -16,7 +18,7 @@ const bcrypt = require("bcryptjs");
 
 //To Check if user already exists
 const checkIfUserExists = require("./middleware/registerMiddleware");
-
+const checkIfRegister=  require("./middleware/loginMiddleware");
 //Handle Registering Users
 //POST user/signup
 router.post("/signup", checkIfUserExists, async (req, res) => {
@@ -44,7 +46,7 @@ msg=""
       } else {
         msg="USER REGISTERED PLEASE LOGIN";
         var fail=true;
-        res.render("Home", { msg: ["USER REGISTERED PLEASE LOGIN"],fail:fail ,display1:"block",display2:"none"});
+        res.render("Home", { msg: ["USER REGISTERED PLEASE LOGIN"],fail:fail ,display1:"block",display2:"none",logged:req.session.admin});
         // res.redirect("/user/logn");
       }
     });
@@ -54,16 +56,40 @@ msg=""
 router.get("/login",function(req,res){
 
  
-  res.render("Home",{msg:null,display1:"block",display2:"none"})
+  res.render("Home",{msg:null,display1:"block",display2:"none",logged:req.session.admin})
 });
 
 router.get("/signup",function(req,res){
  
-  res.render("Home",{msg:null,display1:"none",display2:"block"})
+  res.render("Home",{msg:null,display1:"none",display2:"block",logged:req.session.admin})
 });
 
 
 //Handle POST user Login
+router.post("/login", checkIfRegister, async (req, res) => {
+  await db.query("SELECT * FROM user WHERE email = ?", req.body.email, async (error,result,fields)=>{
+
+    var isMatch = await bcrypt.compare(req.body.password, result[0].password);
+    if (isMatch) {
+      isLogged = true;
+      userName = result[0].firstname;
+      req.session.user = result[0].id;
+      req.session.admin = true;
+      console.log(result);
+      res.redirect("/");
+    } else {
+      var msg=["Wrong Credentialks"]
+      res.render("Home",{msg:msg,display1:"block",display2:"none",logged:req.session.admin});
+    }
+  });
+  
+ 
+});
+
+router.get("/logout",function(req,res){
+  req.session.admin = false;
+  res.redirect("/");
+});
 module.exports = router;
 
 // var isMatch = await bcrypt.compare(password, user.password);

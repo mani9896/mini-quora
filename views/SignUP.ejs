@@ -79,18 +79,9 @@ button
 </head>
 
 <body>
-  
-  <%if(msg&&!fail){%>
+  <%if(msg){%>
     <%for(var i=0;i<msg.length;i++){%>
     <div class= "alert" >
-      <span class="closebtn">&times;</span>  
-      <strong> <%=msg[i]%></strong>
-    </div>
-    <%}%>
-  <%}%>
-  <%if(msg&&fail){%>
-    <%for(var i=0;i<msg.length;i++){%>
-    <div class= "success" >
       <span class="closebtn">&times;</span>  
       <strong> <%=msg[i]%></strong>
     </div>
@@ -100,9 +91,12 @@ button
 <div class="form" id="signin" style="display: <%=display2%>">
   
     <div class="form_heading">
+      
         <div class="imgcontainer">
           <a href="/">
-        <span class="close" title="Cancel">&times;</a></span></div>
+        <span class="close" title="Cancel">
+          
+          &times;</a></span></div>
 <h1 style="text-align: center;font-family: sans-serif;">Sign In </h1>
 
 <p style="text-align: center;">Thankyou for your interest. Please register to become a part of our Blogging Family!</p>
