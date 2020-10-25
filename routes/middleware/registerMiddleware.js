@@ -19,7 +19,7 @@ const checkIfUserExists = async (req, res, next) => {
       ) {
         if (results.length > 0) {
           msg.push("ALREADY HERE");
-          res.render("Home", { msg: msg,fail:fail,display1:"none",display2:"block",logged:false });
+          res.render("Home", { msg: msg,fail:fail,display1:"none",display2:"block" ,logged:false });
           ifUserfound = true;
         } else {
           next();
