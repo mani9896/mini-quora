@@ -4,13 +4,16 @@ const app = express();
 const ejs = require("ejs");
 const session = require("express-session");
 const db = require("./config/db.js");
+const socketio = require("socket.io");
 const PORT = process.env.PORT;
+const http = require("http");
 const bodyParser = require("body-parser");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json({ extended: false }));
-const name = "";
+const server = http.createServer(app);
+const io = socketio(server);
 app.use(
   session({
     secret: "2C44-4D44-WppQ38S",
@@ -18,17 +21,30 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 //render home.ejs with passing a variable
 app.get("/", (req, res) => {
-  var msg=null;
-  if(req.session.admin)
-  {
-    msg=["Logged In"];
+  var msg = null;
+  if (req.session.admin) {
+    msg = ["Logged In"];
   }
-  res.render("Home", { msg:msg  ,display1:"none",display2:"none",logged:req.session.admin});
+  res.render("Home", {
+    msg: msg,
+    display1: "none",
+    display2: "none",
+    logged: req.session.admin,
+  });
+});
+app.use("/post", require("./routes/post"));
+
+io.on("connection", function (socket) {
+  socket.on("add", function () {
+    io.emit("image");
+  });
+  console.log("Connected socket");
 });
 app.use("/user", require("./routes/user"));
-app.listen(3000 || PORT, function (req, res) {
+server.listen(3000 || PORT, function (req, res) {
   console.log("Running on Server");
 });
 
