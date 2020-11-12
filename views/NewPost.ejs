@@ -6,19 +6,23 @@
     <title>Document</title>
 </head>
 <body>
+    <center>
     <form action="/post/newpost" method="POST" enctype="multipart/form-data">
         <input type="text" name="title">
-        <input type="text" name="body">
+       <br>
+       <br>
+        <textarea name="body" id="" cols="30" rows="10"></textarea>
         <div class="imagest">
             <div class="imgt">
                 <input type="file" id="image" name="image" value="" />
             </div>
         </div>
-        <button type="submit">USbmit</button>
+        <button type="submit">Submit</button>
     </form>
     <form action="" id="compose">
         <button id="addImage">Add Image</button>
     </form>
+    </center>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/main.js"></script>
 </body>

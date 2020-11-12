@@ -23,17 +23,31 @@ app.use(
 );
 
 //render home.ejs with passing a variable
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   var msg = null;
+  var posts;
   if (req.session.admin) {
     msg = ["Logged In"];
   }
-  res.render("Home", {
-    msg: msg,
-    display1: "none",
-    display2: "none",
-    logged: req.session.admin,
-  });
+  await db.query(
+    "SELECT title,text,url FROM POST,IMAGES WHERE POST.post_id=IMAGES.post_id",
+    function (error, result, fileds) {
+      if (error) {
+        console.log(error);
+      } else {
+        posts = result;
+        console.log(result);
+        res.render("Home", {
+          posts: result,
+          msg: msg,
+          display1: "none",
+          display2: "none",
+          logged: req.session.admin,
+        });
+      }
+    }
+  );
+  console.log(posts);
 });
 app.use("/post", require("./routes/post"));
 
