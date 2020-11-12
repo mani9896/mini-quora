@@ -86,9 +86,11 @@
 
     </main>
     <div>
+        <%if(logged){%>
         <%for(var i =0 ; i < posts.length; i++){%>
             <h1><%=posts[i].title %></h1>
             <img src="<%=posts[i].url%>" alt="" srcset="">
+        <%}%>
         <%}%>
     </div>
 
