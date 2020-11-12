@@ -66,12 +66,14 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
             fields
           ) {
             if (error) {
+              res.send("ERROR");
               console.log(error);
             } else {
               console.log("Images added");
             }
           });
         }
+        res.send("IMAGES ADDED");
       }
     }
   );
