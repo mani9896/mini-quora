@@ -24,7 +24,7 @@ cloudinary.config({
 const upload = require("./middleware/multerMiddleware");
 
 router.get("/newpost", checkifLogged, function (req, res) {
-  res.render("NewPost");
+  res.render("NewPost", { logged: req.session.admin });
 });
 router.post("/newpost", upload.array("image"), async (req, res) => {
   var newPost = {

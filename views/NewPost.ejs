@@ -7,28 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/Style.css">
+    <link rel="stylesheet" href="/css/Style2.css">
+    <link rel="stylesheet" href="/css/temp.css">
 </head>
+<%- include("nav"); -%>
+
 <body style="background-image: url(../../images/background-newpost.jpg);">    <!-- ADD BACKGROUND IMAGE HERE -->
     
     <!-- ======================= NAV BAR =========================== -->
-    <div class="pos-f-t" style="opacity: 0.6">
-          <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-              <h4 class="text-white">Collapsed content</h4>
-              <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-          </div>
-          <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </nav>
-    </div>
-
+    
    <!-- ========================  NAV BAR END =========================  -->
 
 
     <center>
+      <h1>NEW POST</h1>
 
         <form action="/post/newpost" method="POST" enctype="multipart/form-data">
             <input type="text" name="title" style="background-color: rgba(200, 183, 183,0.2);height: 30px; margin-top: 6px; width: 40ex ; color: white " placeholder="title" >
