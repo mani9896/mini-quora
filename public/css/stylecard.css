@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #eedfcc;
+  background: #E7E7E7;
   color: #555555;
   font-size: 14px;
 }
@@ -21,7 +21,7 @@ img {
 
 .wrapper {
   width: 100%;
-  margin: 20px auto;
+  margin: 80px auto;
 }
 
 .cards_wrap {
@@ -35,7 +35,7 @@ img {
 }
 
 .cards_wrap .card_inner {
-  background: #fff;
+  background: rgba(143, 143, 143,50%);
 }
 
 .cards_wrap .card_top {
@@ -86,4 +86,9 @@ img {
   .cards_wrap .card_item {
     width: 100%;
   }
+}
+
+.card_inner {
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 4px;
 }

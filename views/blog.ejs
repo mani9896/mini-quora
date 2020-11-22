@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>blog</title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+		body{
+			background-color: rgba(69, 69, 69);
+		}
+		h1{
+			font-size: 2.1rem;
+			line-height: 1.4;
+			letter-spacing: 0.5rem;
+			text-align: center;
+			color: white;
+			margin-top: 50px;
+		}
+		.maindiv{
+			width: 70%;
+			height: 500px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			background-image: url(../public/images/blog_page/blog1.jpg);
+			background-size: 100% 100%;	
+			box-shadow: 1px 2px 10px 5px grey;
+			animation: slider 10s infinite linear
+		}
+		.post-content{
+			font-family: 'Anton', sans-serif;
+			margin-top: 33em;
+			width: 70%;
+			height: 500px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			
+		}
+		.post-subject{
+			color: rgba(141, 127, 127);
+			font-size: 1.5em;
+			font-weight: 500;
+		}
+		.post-description{
+			color: rgba(221, 213, 213);
+			font-size: 1.2em;
+			font-weight: 250;
+
+		}
+		@keyframes slider{
+			0%{background-image: url(../public/images/blog_page/blog1.jpg);}
+			40%{background-image: url(../public/images/blog_page/blog2.jpg);}
+			70%{background-image: url(../public/images/blog_page/blog3.jpg);}
+		}
+	</style>
+</head>
+<body>
+        <h1>BLOG TITLE</h1>     
+        <div class="maindiv">
+        </div>
+        <div class="post-content">
+        		<div class="post-subject">
+        			<p>Why should boys have all the fun? it's the women who are making india an alcohol-loving contry</p>
+        		</div>
+        		<div class="post-description">
+        			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
+                                adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
+                                nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
+                                illum similique veniam tempore unde?</p>
+        		</div>
+        	</div>
+        
+</body>
+</html>
