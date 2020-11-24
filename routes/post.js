@@ -26,6 +26,7 @@ const upload = require("./middleware/multerMiddleware");
 router.get("/newpost", checkifLogged, function (req, res) {
   res.render("NewPost", { logged: req.session.admin });
 });
+
 router.post("/newpost", upload.array("image"), async (req, res) => {
   var newPost = {
     user: req.session.user,
@@ -60,18 +61,18 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
             console.log(error);
           }
 
-          await db.query("INSERT INTO images SET ?", images, function (
-            error,
-            results,
-            fields
-          ) {
-            if (error) {
-              res.send("ERROR");
-              console.log(error);
-            } else {
-              console.log("Images added");
+          await db.query(
+            "INSERT INTO images SET ?",
+            images,
+            function (error, results, fields) {
+              if (error) {
+                res.send("ERROR");
+                console.log(error);
+              } else {
+                console.log("Images added");
+              }
             }
-          });
+          );
         }
         res.send("IMAGES ADDED");
       }
@@ -79,10 +80,14 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
   );
 });
 
-router.get("/:id", function (req, res) {
-  var id = req.params.id;
-  console.log();
+// router.get("/:id", function (req, res) {
+//   var id = req.params.id;
+//   console.log();
+// });
+router.get("/post1", function (req, res) {
+  res.render("blog.ejs", { x: 500 });
 });
+
 const socketio = require("socket.io");
 const http = require("http");
 const server = http.createServer(app);

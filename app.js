@@ -35,7 +35,6 @@ app.get("/", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        posts = result;
         console.log(result);
         res.render("Home", {
           posts: result,
