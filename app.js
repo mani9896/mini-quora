@@ -35,7 +35,6 @@ app.get("/", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        console.log(result);
         res.render("Home", {
           posts: result,
           msg: msg,
@@ -46,7 +45,6 @@ app.get("/", async (req, res) => {
       }
     }
   );
-  console.log(posts);
 });
 app.use("/post", require("./routes/post"));
 
