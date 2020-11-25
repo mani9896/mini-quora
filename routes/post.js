@@ -84,9 +84,9 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
 //   var id = req.params.id;
 //   console.log();
 // });
-router.get("/post1", function (req, res) {
-  res.render("blog.ejs", { x: 500 });
-});
+// router.get("/post1", function (req, res) {
+//   res.render("blog.ejs", { x: 500 });
+// });
 
 const socketio = require("socket.io");
 const http = require("http");
