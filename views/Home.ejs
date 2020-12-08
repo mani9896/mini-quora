@@ -66,10 +66,10 @@
                             </div>
                             <div class="card_info">
                                 <a href="/post/<%=posts[i].post_id%>">
-                                <p class="title"><%=posts[i].title %></p>
+                                <p class="title"><%=posts[i].title.substring(0, Math.min(10, 50)) %></p>
                                 </a>
                                 <p>
-                                    <%=posts[i].text %>
+                                    <%=posts[i].text.substring(0, Math.min(10, 50)); %>
                                 </p>
                             </div>
                             <div class="card_creator">
