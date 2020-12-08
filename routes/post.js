@@ -76,16 +76,6 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
   );
 });
 
-<<<<<<< HEAD
-// router.get("/:id", function (req, res) {
-//   var id = req.params.id;
-//   console.log();
-// });
-// router.get("/post1", function (req, res) {
-//   res.render("blog.ejs", { x: 500 });
-// });
-
-=======
 router.get("/:id", async (req, res) => {
   var id = req.params.id;
   await db.query(
@@ -101,7 +91,6 @@ router.get("/:id", async (req, res) => {
     }
   );
 });
->>>>>>> x
 const socketio = require("socket.io");
 const http = require("http");
 const server = http.createServer(app);
