@@ -37,7 +37,12 @@
                 <a href="/user/logout"> Logout </a></li>
                 <%}%>
                 <li class="nav-link" >
+                    <%if(!logged){%>
                     <a href="/user/signup"> Sign-up</a></li>
+                    <%}%>
+                    <%if(logged){%>
+                    <li class="nav-link"><a href="/post/newpost">Make A Post</a></li>
+                    <%}%>
                 </ul>
             </div>
         </div>
