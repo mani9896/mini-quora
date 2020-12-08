@@ -76,9 +76,20 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
   );
 });
 
-router.get("/:id", function (req, res) {
+router.get("/:id", async (req, res) => {
   var id = req.params.id;
-  console.log();
+  await db.query(
+    "SELECT POST.post_id,title,text,url FROM POST,IMAGES WHERE POST.post_id=IMAGES.post_id AND POST.post_id = ?",
+    id,
+    function (err, result, fields) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        res.render("blog", { post: result });
+      }
+    }
+  );
 });
 const socketio = require("socket.io");
 const http = require("http");

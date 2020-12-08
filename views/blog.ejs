@@ -48,30 +48,27 @@
 		}
 		.post-description{
 			color: rgba(221, 213, 213);
-			font-size: <%=x%>px;
+			font-size: 100px;
 			font-weight: 250;
 
 		}
 		@keyframes slider{
-			0%{background-image: url(../images/blog_page/blog1.jpg);}
+			0%{background-image: url("<%=post[0].url%>")}
 			40%{background-image: url(../images/blog_page/blog2.jpg);}
 			70%{background-image: url(../images/blog_page/blog3.jpg);}
 		}
 	</style>
 </head>
 <body>
-        <h1>BLOG TITLE</h1>     
+        <h1><%=post[0].title%></h1>     
         <div class="maindiv">
         </div>
         <div class="post-content">
         		<div class="post-subject">
-        			<p>Why should boys have all the fun? it's the women who are making india an alcohol-loving contry</p>
+        			<p><%=post[0].title%></p>
         		</div>
         		<div class="post-description">
-        			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
-                                adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
-                                nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
-                                illum similique veniam tempore unde?</p>
+        			<p><%=post[0].text%></p>
         		</div>
         	</div>
         
