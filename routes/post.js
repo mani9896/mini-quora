@@ -71,6 +71,8 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
             }
           );
         }
+        var msg = ["Post Created"];
+        res.render("Success", { logged: req.session.admin });
       }
     }
   );
