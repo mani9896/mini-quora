@@ -44,22 +44,25 @@
 		.post-subject{
 			color: rgba(141, 127, 127);
 			font-size: 1.5em;
-			font-weight: 500;
+			font-weight: 50;
 		}
 		.post-description{
 			color: rgba(221, 213, 213);
-			font-size: 100px;
-			font-weight: 250;
+			font-size: 40px;
+			font-weight: 25;
 
 		}
 		@keyframes slider{
+			/* <%for(var i=0 ; i<post.length;i++){%> */
 			0%{background-image: url("<%=post[0].url%>")}
-			40%{background-image: url(../images/blog_page/blog2.jpg);}
+			40%{background-image: url("<%=post[1].url%>");}
 			70%{background-image: url(../images/blog_page/blog3.jpg);}
+			/* /<%}%> */
 		}
 	</style>
 </head>
 <body>
+	<%- include("nav"); -%>
         <h1><%=post[0].title%></h1>     
         <div class="maindiv">
         </div>
