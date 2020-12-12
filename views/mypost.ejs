@@ -9,9 +9,7 @@
 <body>
     <%- include("nav"); -%>
 
-    <%for(var i=0;i<post.length;i++){%>
-        <h1><%=post[i].title%></h1>
-    <%}%>
+    
 <center style="margin-top: 20px; font-size: 1.3em;">YOUR POSTS</center>
 
         
@@ -19,42 +17,37 @@
         <!-- ==================== THIS IS THE FIRST ROW i.e ATTRIBUTES OF COLOUMNS =================-->
             <div class="table-row table-head">
                 <div class="table-cell first-cell">
-                    <p>Easy Tutorials Videos</p>
+                    <h1>TiTle</h1>
                 </div>
                 <div class="table-cell">
-                    <p>Likes</p>
+                    <h1>Category</h1>
                 </div>
-                <div class="table-cell last-cell">
-                    <p>YouTube Link</p>
-                </div> 
             </div>
          <!--============== ATTRIBUTE ROW ENDED AFTER THIS VALUES ROWS STARTS ========================-->   
         <!--====================== THIS IS THE ONE ROW OF THE TABLE ==================================-->    
-    
+
+        <%for(var i=0;i<post.length;i++){%>
+            
+
             <div class="table-row">
+                
                 <div class="table-cell first-cell">
-                    <p>Business Website Tutorial</p>
+                    <h2>
+                        <a href="/post/<%=post[i].post_id%>">
+                        <%=post[i].title.substring(0, Math.min(30, 50))+"......." %>
+                        </a>
+                    </h2>
                 </div>
                 <div class="table-cell">
-                    <p>999</p>
+                    <p><%=post[i].category%></p>
                 </div>
-                <div class="table-cell last-cell">
-                    <a href="https://youtu.be/99vHH_6F0Ko">Watch Now</a>
-                </div>   
+             
             </div>
+            <%}%>
+            
           <!--== HERE THE ROW ENDS COPY THIS TO ADD MORE ROWS. ONE MORE IS ADDED AFTER THIS FOR DEMO =========-->
          
-            <div class="table-row">
-                <div class="table-cell first-cell">
-                    <p>Digital Agency Website Tutorial</p>
-                </div>
-                <div class="table-cell">
-                    <p>999</p>
-                </div>
-                <div class="table-cell last-cell">
-                    <a href="https://youtu.be/v0IgI8vYD_o">Watch Now</a>
-                </div>
-            </div>
+          
     
             
     </div>   
