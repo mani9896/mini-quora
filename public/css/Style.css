@@ -289,3 +289,61 @@ main .site-title .btn:hover{
     font-size: 18px;
     
 }
+  /*------------- Dropdown menu in category -----------*/
+.dropdown {
+    
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    cursor: pointer;
+    color: var(--text-gray);
+    border: none;
+    outline: none;
+    background-color: white;
+    margin: 0;
+    padding: 1.6rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+    font-family: var(--lexend);
+    
+  }
+  .dropdown .dropbtn:hover{
+    background-color: var(--midnight);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+transform: translateY(0.1rem);
+    transition: transform 150ms;
+    color:white;
+}
+  
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    font-family: var(--lexend);
+    color: var(--text-gray);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--midnight);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+    transform: translateY(0.1rem);
+    transition: transform 150ms;
+    color:white;
+  }
+  
+  .show {
+    display: block;
+  }
