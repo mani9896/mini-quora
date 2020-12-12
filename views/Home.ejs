@@ -55,7 +55,7 @@
                 <%for(var i =0 ; i < posts.length; i++){%>
                     
         
-        
+                    
                 <div class="card_item">
                     <div class="card_inner">
                         <div class="card_top">
@@ -66,9 +66,11 @@
                                 Travel
                             </div>
                             <div class="card_info">
-                                <p class="title"><%=posts[i].title %></p>
+                                <a href="/post/<%=posts[i].post_id%>">
+                                <p class="title"><%=posts[i].title.substring(0, Math.min(10, 50)) %></p>
+                                </a>
                                 <p>
-                                    <%=posts[i].text %>
+                                    <%=posts[i].text.substring(0, Math.min(10, 50)); %>
                                 </p>
                             </div>
                             <div class="card_creator">
@@ -77,8 +79,7 @@
                         </div>
                     </div>
                 </div>
-               
-                
+            
                 <%}%>
             </div>
         </div>

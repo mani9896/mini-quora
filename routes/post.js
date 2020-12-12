@@ -1,4 +1,3 @@
-// All backend related to POSTS
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
@@ -24,7 +23,7 @@ cloudinary.config({
 const upload = require("./middleware/multerMiddleware");
 
 router.get("/newpost", checkifLogged, function (req, res) {
-  res.render("NewPost", { logged: req.session.admin });
+  res.render("NewPost");
 });
 router.post("/newpost", upload.array("image"), async (req, res) => {
   var newPost = {
@@ -60,28 +59,39 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
             console.log(error);
           }
 
-          await db.query("INSERT INTO images SET ?", images, function (
-            error,
-            results,
-            fields
-          ) {
-            if (error) {
-              res.send("ERROR");
-              console.log(error);
-            } else {
-              console.log("Images added");
+          await db.query(
+            "INSERT INTO images SET ?",
+            images,
+            function (error, results, fields) {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log("Images added");
+              }
             }
-          });
+          );
         }
-        res.send("IMAGES ADDED");
+        var msg = ["Post Created"];
+        res.render("Success", { logged: req.session.admin });
       }
     }
   );
 });
 
-router.get("/:id", function (req, res) {
+router.get("/:id", async (req, res) => {
   var id = req.params.id;
-  console.log();
+  await db.query(
+    "SELECT POST.post_id,title,text,url FROM POST,IMAGES WHERE POST.post_id=IMAGES.post_id AND POST.post_id = ?",
+    id,
+    function (err, result, fields) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        res.render("blog", { post: result });
+      }
+    }
+  );
 });
 const socketio = require("socket.io");
 const http = require("http");

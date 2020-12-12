@@ -30,13 +30,11 @@ app.get("/", async (req, res) => {
     msg = ["Logged In"];
   }
   await db.query(
-    "SELECT title,text,url FROM POST,IMAGES WHERE POST.post_id=IMAGES.post_id",
+    "SELECT images.post_id, title, text, ANY_VALUE(url) AS url FROM post,IMAGES where post.post_id = images.post_id group by post_id",
     function (error, result, fileds) {
       if (error) {
         console.log(error);
       } else {
-        posts = result;
-        console.log(result);
         res.render("Home", {
           posts: result,
           msg: msg,
@@ -47,7 +45,6 @@ app.get("/", async (req, res) => {
       }
     }
   );
-  console.log(posts);
 });
 app.use("/post", require("./routes/post"));
 
