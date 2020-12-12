@@ -23,13 +23,14 @@ cloudinary.config({
 const upload = require("./middleware/multerMiddleware");
 
 router.get("/newpost", checkifLogged, function (req, res) {
-  res.render("NewPost");
+  res.render("NewPost", { logged: req.session.admin });
 });
 router.post("/newpost", upload.array("image"), async (req, res) => {
   var newPost = {
     user: req.session.user,
     title: req.body.title,
     text: req.body.body,
+    category: req.body.category,
   };
 
   await db.query(
@@ -88,11 +89,14 @@ router.get("/:id", async (req, res) => {
         console.log(err);
       } else {
         console.log(result);
-        res.render("blog", { post: result });
+        var len = 100 / result.length;
+
+        res.render("blog", { post: result, logged: req.session.admin });
       }
     }
   );
 });
+
 const socketio = require("socket.io");
 const http = require("http");
 const server = http.createServer(app);

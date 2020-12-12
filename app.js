@@ -8,6 +8,8 @@ const socketio = require("socket.io");
 const PORT = process.env.PORT;
 const http = require("http");
 const bodyParser = require("body-parser");
+const checkifLogged = require("./routes/middleware/checkifLogged");
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -46,6 +48,45 @@ app.get("/", async (req, res) => {
     }
   );
 });
+
+//Category filter
+app.get("/pick/:category", checkifLogged, async (req, res) => {
+  var category = req.params.category;
+  await db.query(
+    "SELECT POST.post_id,title,category FROM POST WHERE POST.category = ?",
+    category,
+    function (err, result, fields) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        var len = 100 / result.length;
+        console.log(result);
+        res.render("category", { post: result, logged: req.session.admin });
+      }
+    }
+  );
+});
+
+//My posts
+app.get("/myposts", checkifLogged, async (req, res) => {
+  var user = req.session.user;
+  await db.query(
+    "SELECT POST.post_id,title,category FROM POST WHERE POST.user = ?",
+    user,
+    function (err, result, fields) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        var len = 100 / result.length;
+        console.log(result);
+        res.render("mypost", { post: result, logged: req.session.admin });
+      }
+    }
+  );
+});
+
 app.use("/post", require("./routes/post"));
 
 io.on("connection", function (socket) {
