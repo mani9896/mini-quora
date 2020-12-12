@@ -88,6 +88,8 @@ router.get("/:id", async (req, res) => {
         console.log(err);
       } else {
         console.log(result);
+        var len = 100 / post.length;
+
         res.render("blog", { post: result });
       }
     }
