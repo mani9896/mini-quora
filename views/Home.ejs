@@ -55,31 +55,30 @@
                 <%for(var i =0 ; i < posts.length; i++){%>
                     
         
-                    
+        
                 <div class="card_item">
                     <div class="card_inner">
                         <div class="card_top">
-                            <img src="<%=posts[i].url%>" style="height: 20em; border-radius: 2%;box-shadow: 2px;" alt="" srcset="">
+                            <img src="<%=posts[i].url%>" alt="" srcset="">
                         </div>
                         <div class="card_bottom">
                             <div class="card_category">
                                 Travel
                             </div>
                             <div class="card_info">
-                                <a href="/post/<%=posts[i].post_id%>">
-                                <p class="title" style="color: cadetblue;"><%=posts[i].title.substring(0, Math.min(10, 50)) %></p>
-                                </a>
-                                <p style="color: rgb(58, 72, 73);">
-                                    <%=posts[i].text.substring(0, Math.min(10, 50)); %>
+                                <p class="title"><%=posts[i].title %></p>
+                                <p class="blogcontent">
+                                    <%=posts[i].text %>
                                 </p>
                             </div>
                             <div class="card_creator">
-                                <h2>by <%=posts[i].name%></h2>
+                                By Alex Kato
                             </div>
                         </div>
                     </div>
                 </div>
-            
+               
+                
                 <%}%>
             </div>
         </div>
@@ -88,11 +87,11 @@
     
     <!-- ======= Cards =========== -->
     
+<div id="contact"></div>
+    <%- include("footer"); -%>
+    
 
-    <footer style="background-color: rgba(47, 47, 47,20%); height: 300px;"></footer>
-
-
-
+</div>
 
   
 
