@@ -8,14 +8,14 @@
 
 	<style type="text/css">
 		body{
-			background-color: rgba(69, 69, 69);
+			background-color: rgba(110, 110, 110,30%);
 		}
 		h1{
 			font-size: 2.1rem;
 			line-height: 1.4;
 			letter-spacing: 0.5rem;
 			text-align: center;
-			color: white;
+			color: rgb(177, 132, 132);
 			margin-top: 50px;
 		}
 		.maindiv{
@@ -28,7 +28,7 @@
 			background-image: url(../public/images/blog_page/blog1.jpg);
 			background-size: 100% 100%;	
 			box-shadow: 1px 2px 10px 5px grey;
-			animation: slider 10s infinite linear
+			animation: slider 15s infinite linear
 		}
 		.post-content{
 			font-family: 'Anton', sans-serif;
@@ -42,13 +42,13 @@
 			
 		}
 		.post-subject{
-			color: rgba(141, 127, 127);
+			color: rgb(212, 198, 198);
 			font-size: 1.5em;
-			font-weight: 50;
+			font-weight: 80;
 		}
 		.post-description{
 			color: rgba(221, 213, 213);
-			font-size: 40px;
+			font-size: 1em;
 			font-weight: 25;
 
 		}
@@ -56,10 +56,10 @@
 			/* <%for(var i=0 ; i<post.length;i++){%> */
 			
 			<%if(post.length==1){%>
-			0%{background-image: url("<%=post[0].url%>")}
+			-3%{background-image: url("<%=post[0].url%>")}
 			<%}else if(post.length==2){%>
 			0%{background-image: url("<%=post[0].url%>")}
-			40%{background-image: url("<%=post[1].url%>");}
+			50%{background-image: url("<%=post[1].url%>");}
 			<%}else if(post.length==3){%>
 			0%{background-image: url("<%=post[0].url%>")}
 			40%{background-image: url("<%=post[1].url%>");}
@@ -72,7 +72,7 @@
 </head>
 <body>
 	<%- include("nav"); -%>
-        <h1><%=post[0].title%></h1>     
+        <h1 style="margin-top: 6em;"><%=post[0].title%></h1>     
         <div class="maindiv">
         </div>
         <div class="post-content">
