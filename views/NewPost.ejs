@@ -11,37 +11,42 @@
 <body style="background-image: url(../../images/bg2.svg);">
   <%- include("nav"); -%>
   <center>
-    <h1 class="header">Create your New Blog here</h1>
+    <h1 class="header">Create your New Blog here</h1></center>
+    
     <form action="/post/newpost" method="POST" enctype="multipart/form-data">
-      <input type="text" name="title" class="title" placeholder="Enter your Blog Title">
+      <center><input type="text" name="title" class="title" placeholder="Enter your Blog Title">
       <br><br>
       <textarea  name="body" class="blogbody"  cols="150" rows="20" placeholder="Enter your blog content here"></textarea>
       <br><br> </center>
       <div class="imagest">
         <div class="imgt">
-          <input type="file" id="image" class="div_buttons" name="image" value=""  />
+          
+        <input type="file" id="image" class="div_buttons" name="image" value=""/>
         <br><br><br>
         </div>
       </div>
      
       <h2 class="categoryhead">Choose your blog category:</h2>
       <select name="category" id="category" class="categorylist">
-        <option class="optionlist" value="Education">Education</option>
+        <option  value="Education">Education</option>
         <option value="Food">Food</option>
         <option value="Travel">Travel</option>
         <option value="Sports">Sports</option>
         <option value="Fitness">Fitness</option>
       </select>
      
+      
       <button type="submit" class="submit_button">Submit</button>
 
     </form>
     <form action="" id="compose">
-      <button id="addImage" >Add More Images</button>
+      <button id="addImage">Add Images</button>
     </form>
+  
     
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/main.js"></script>
+    <%- include("footer"); -%>
 
 </body>
 
