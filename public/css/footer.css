@@ -6,7 +6,7 @@ box-sizing: border-box;
 background: #111;
 height: auto;
 width: 100vw;
-font-family: "Open Sans"
+font-family: "Open Sans";
 padding-top:40px;
 color:#fff;
 bottom: 0;
@@ -80,6 +80,11 @@ text-align: center;
   text-transform: uppercase;
   opacity: .4;
   font-weight: 200;
+
+}
+.contact{
+  font-family: "Open Sans";
+  text-align:center;
 
 }
 
