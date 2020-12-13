@@ -57,9 +57,12 @@
 			
 			<%if(post.length==1){%>
 			0%{background-image: url("<%=post[0].url%>")}
+				40%{background-image: url("<%=post[0].url%>")}
+					70%{background-image: url("<%=post[0].url%>")}
 			<%}else if(post.length==2){%>
 			0%{background-image: url("<%=post[0].url%>")}
 			40%{background-image: url("<%=post[1].url%>");}
+			70%{background-image: url("<%=post[0].url%>")}
 			<%}else if(post.length==3){%>
 			0%{background-image: url("<%=post[0].url%>")}
 			40%{background-image: url("<%=post[1].url%>");}

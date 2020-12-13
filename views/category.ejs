@@ -4,13 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mypost</title>
+    <link rel="stylesheet" href="/css/style_mypost.css">
 </head>
 
 <body>
     <%- include("nav"); -%>
-    <%for(var i=0;i<post.length;i++){%>
-    <h1><%=post[i].title%></h1>
-    <%}%>
+
+
+        <center style="margin-top: 20px; font-size: 1.3em;">YOUR POSTS</center>
+
+
+        <div class="table-box">
+            <!-- ==================== THIS IS THE FIRST ROW i.e ATTRIBUTES OF COLOUMNS =================-->
+            <div class="table-row table-head">
+                <div class="table-cell first-cell">
+                    <h1>TiTle</h1>
+                </div>
+                <div class="table-cell">
+                    <h1>Category</h1>
+                </div>
+            </div>
+            <!--============== ATTRIBUTE ROW ENDED AFTER THIS VALUES ROWS STARTS ========================-->
+            <!--====================== THIS IS THE ONE ROW OF THE TABLE ==================================-->
+
+            <%for(var i=0;i<post.length;i++){%>
+
+
+                <div class="table-row">
+
+                    <div class="table-cell first-cell">
+                        <h2>
+                            <a href="/post/<%=post[i].post_id%>">
+                                <%=post[i].title.substring(0, Math.min(30, 50))+"......." %>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="table-cell">
+                        <p>
+                            <%=post[i].category%>
+                        </p>
+                    </div>
+
+                </div>
+                <%}%>
+
+                    <!--== HERE THE ROW ENDS COPY THIS TO ADD MORE ROWS. ONE MORE IS ADDED AFTER THIS FOR DEMO =========-->
+
+
+
+
+        </div>
+
 </body>
+
 </html>

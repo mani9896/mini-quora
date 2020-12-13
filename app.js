@@ -32,11 +32,12 @@ app.get("/", async (req, res) => {
     msg = ["Logged In"];
   }
   await db.query(
-    "SELECT images.post_id, title, text, ANY_VALUE(url) AS url FROM post,IMAGES where post.post_id = images.post_id group by post_id",
+    "SELECT images.post_id, title, text,name, ANY_VALUE(url) AS url FROM post,IMAGES where post.post_id = images.post_id group by post_id",
     function (error, result, fileds) {
       if (error) {
         console.log(error);
       } else {
+        console.log(req.session);
         res.render("Home", {
           posts: result,
           msg: msg,

@@ -31,6 +31,7 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
     title: req.body.title,
     text: req.body.body,
     category: req.body.category,
+    name: req.session.name,
   };
 
   await db.query(
