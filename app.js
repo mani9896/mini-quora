@@ -37,12 +37,14 @@ app.get("/", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
+        console.log(req.session);
         res.render("Home", {
           posts: result,
           msg: msg,
           display1: "none",
           display2: "none",
           logged: req.session.admin,
+          name: req.session.name,
         });
       }
     }

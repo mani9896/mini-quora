@@ -35,27 +35,27 @@ router.post("/signup", checkIfUserExists, async (req, res) => {
   users.password = await bcrypt.hash(req.body.password[0], salt);
   msg = "";
   {
-    await db.query("INSERT INTO user SET ?", users, function (
-      error,
-      results,
-      fields
-    ) {
-      if (error) {
-        console.log(error);
-        res.send("USER NOT REGISTERED");
-      } else {
-        msg = "USER REGISTERED PLEASE LOGIN";
-        var fail = true;
-        res.render("Home", {
-          msg: ["USER REGISTERED PLEASE LOGIN"],
-          fail: fail,
-          display1: "block",
-          display2: "none",
-          logged: req.session.admin,
-        });
-        // res.redirect("/user/logn");
+    await db.query(
+      "INSERT INTO user SET ?",
+      users,
+      function (error, results, fields) {
+        if (error) {
+          console.log(error);
+          res.send("USER NOT REGISTERED");
+        } else {
+          msg = "USER REGISTERED PLEASE LOGIN";
+          var fail = true;
+          res.render("Home", {
+            msg: ["USER REGISTERED PLEASE LOGIN"],
+            fail: fail,
+            display1: "block",
+            display2: "none",
+            logged: req.session.admin,
+          });
+          // res.redirect("/user/logn");
+        }
       }
-    });
+    );
   }
 });
 
@@ -86,7 +86,8 @@ router.post("/login", checkIfRegister, async (req, res) => {
       var isMatch = await bcrypt.compare(req.body.password, result[0].password);
       if (isMatch) {
         isLogged = true;
-        userName = result[0].firstname;
+        console.log(result);
+        req.session.name = result[0].name;
         req.session.user = result[0].id;
         req.session.admin = true;
         res.redirect("/");
