@@ -32,6 +32,10 @@ window.onclick = function(e) {
                 <li class="nav-link">
                     <a href="/">Home</a>
                 </li>
+                <%if(logged){%>
+                    <li class="nav-link">
+                <a href="/myposts"> My Posts </a></li>
+                <%}%>
                 
                  <li><div class="dropdown">
                     <button class="dropbtn" onclick="myFunction()">Category
@@ -49,10 +53,7 @@ window.onclick = function(e) {
                 <li class="nav-link">
                     <a href="#">Contact Us</a>
                 </li>
-                <%if(logged){%>
-                    <li class="nav-link">
-                <a href="/myposts"> My Posts </a></li>
-                <%}%>
+                
             </ul>
         </div>
 
@@ -63,15 +64,16 @@ window.onclick = function(e) {
                     <%if(!logged){%>
                     <a href="/user/login"> Login </a></li>
                 <%}%>
-                <%if(logged){%>
+                <%if(logged){%><li class="nav-link">
                 <a href="/user/logout"> Logout </a></li>
                 <%}%>
-                <li class="nav-link" >
+                
                     <%if(!logged){%>
+                        <li class="nav-link" >
                     <a href="/user/signup"> Sign-up</a></li>
                     <%}%>
                     <%if(logged){%>
-                    <li class="nav-link"><a href="/post/newpost">Make A Post</a></li>
+                    <li class="nav-link"><a href="/post/newpost">Compose Blog</a></li>
                     <%}%>
                 </ul>
             </div>

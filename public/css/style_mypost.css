@@ -1,25 +1,38 @@
+@import url('../css/fonts.css');
+:root{   --Abel: 'Abel', cursive;
+    --Anton: 'Anton', cursive;
+    --Josefin : 'Josefin', cursive;
+    --Lexend: 'Lexend', cursive;
+    --Livvic : 'Livvic', cursive;
+} 
+
 *{
     margin: 0;
     padding: 0;
+}
+.header{
+    font-family: var(--Lexend);
+    color:#3c4044;
 }
 .table-box
 {
     margin: 50px auto;
 }
 
+
 .table-row{
     display: table;
     width: 80%;
     margin: 10px auto;
-    font-family: sans-serif;
+    font-family: var(--Abel);
     background: transparent;
     padding: 12px 0;
-    color: #555;
+    color:black;
     font-size: 13px;
     box-shadow: 0 1px 4px 0px rgba(0,0,50,0.3);
 }
 .table-head{
-    background: #b6a3f0;
+    background: #104f55;
     box-shadow: none;
     color: #fff;
     font-weight: 600;
@@ -44,7 +57,7 @@
 }
 a{
     text-decoration: none;
-    color: #555;
+    color: black;
 }
 
 @media only screen and (max-width: 600px) {

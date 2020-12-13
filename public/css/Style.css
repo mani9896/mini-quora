@@ -237,58 +237,11 @@ main .site-title .btn:hover{
     color:rgb(20, 19, 19);
 
 }
-.div_buttons{
-    margin-left:74%;
-    margin-top:5px;
 
-}
 
-.blog_submit_button{
-    background-color: #39643a;
-    border-radius: 6px;
-    width:100px;
-    height:40px;
-    font-family: var(--Lexend);
-    font-size:18px;
-    color: white;
-    display: inline;
-    
-    
-}
-.cancel_button{
-    background-color: #861515;
-    border-radius: 6px;
-    width:80px;
-    height:40px;
-    font-family: var(--Lexend);
-    font-size:18px;
-    color: white;
-    display: inline;
-    
-}
-.imagest{ 
-    margin-left:12%;
-    width:fit-content;
-    height:fit-content;
-    
-    
-}
-.imagest input{
-    background-color: rgba(200, 183, 183,0.6);
-     margin-bottom: 3px;
-     font-size:18px;
-}
 
-#add_image{
-    background-color: rgb(243, 236, 236);
-    margin-left:12%;
-    margin-top:0px;
-    position: relative;
-    bottom: 7ex;
-    left: 1ex;
-    font-size: 18px;
-    
-}
+
+
   /*------------- Dropdown menu in category -----------*/
 .dropdown {
     
@@ -304,8 +257,9 @@ main .site-title .btn:hover{
     margin: 0;
     padding: 1.6rem 1rem;
     font-size: 1.1rem;
+    
     position: relative;
-    font-family: var(--lexend);
+    font-family: var(--Abel);
     
   }
   .dropdown .dropbtn:hover{
@@ -328,7 +282,7 @@ transform: translateY(0.1rem);
   
   .dropdown-content a {
     float: none;
-    font-family: var(--lexend);
+    font-family: var(--Abel);
     color: var(--text-gray);
     padding: 12px 16px;
     text-decoration: none;
