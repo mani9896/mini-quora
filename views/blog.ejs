@@ -8,7 +8,8 @@
 
 	<style type="text/css">
 		body{
-			background-color: rgba(110, 110, 110,30%);
+			background-image: url(../../images/bg2.svg);
+			background-repeat:no-repeat;
 		}
 		h1{
 			font-size: 2.1rem;
@@ -38,18 +39,20 @@
 			position: absolute;
 			left: 50%;
 			top: 50%;
+			color: rgb(24, 22, 22);
 			transform: translate(-50%,-50%);
 			
 		}
 		.post-subject{
-			color: rgb(212, 198, 198);
-			font-size: 1.5em;
-			font-weight: 80;
+			color: rgb(4, 22, 11);
+			font-size: 3rem;
+			font-weight:bolder;
 		}
 		.post-description{
-			color: rgba(221, 213, 213);
-			font-size: 1em;
+			color: rgb(24, 22, 22);
+			font-size: 1.5rem;
 			font-weight: 25;
+			
 
 		}
 		@keyframes slider{
@@ -80,10 +83,10 @@
         </div>
         <div class="post-content">
         		<div class="post-subject">
-        			<p><%=post[0].title%></p>
+        			<center><p class="post-subject"><%=post[0].title%></p></center>
         		</div>
         		<div class="post-description">
-        			<p><%=post[0].text%></p>
+        			<p class="post-description"><%=post[0].text%></p>
         		</div>
         	</div>
         
