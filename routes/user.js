@@ -92,7 +92,7 @@ router.post("/login", checkIfRegister, async (req, res) => {
         req.session.admin = true;
         res.redirect("/");
       } else {
-        var msg = ["Wrong Credentialks"];
+        var msg = ["Wrong Credentials"];
         res.render("Home", {
           msg: msg,
           display1: "block",

@@ -56,10 +56,13 @@
 			/* <%for(var i=0 ; i<post.length;i++){%> */
 			
 			<%if(post.length==1){%>
-			-3%{background-image: url("<%=post[0].url%>")}
+			0%{background-image: url("<%=post[0].url%>")}
+				40%{background-image: url("<%=post[0].url%>")}
+					70%{background-image: url("<%=post[0].url%>")}
 			<%}else if(post.length==2){%>
 			0%{background-image: url("<%=post[0].url%>")}
-			50%{background-image: url("<%=post[1].url%>");}
+			40%{background-image: url("<%=post[1].url%>");}
+			70%{background-image: url("<%=post[0].url%>")}
 			<%}else if(post.length==3){%>
 			0%{background-image: url("<%=post[0].url%>")}
 			40%{background-image: url("<%=post[1].url%>");}
