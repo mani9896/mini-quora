@@ -6,18 +6,18 @@
     <title>Mypost</title>
     <link rel="stylesheet" href="/css/style_mypost.css">
 </head>
-<body>
+<body style="background-image: url(../../images/bg2.svg);">
     <%- include("nav"); -%>
 
     
-<center style="margin-top: 20px; font-size: 1.3em;">YOUR POSTS</center>
+<center style="margin-top: 20px; font-size: 1.3em;"><h1 class="header">YOUR POSTS</h1></center>
 
         
     <div class="table-box">
         <!-- ==================== THIS IS THE FIRST ROW i.e ATTRIBUTES OF COLOUMNS =================-->
             <div class="table-row table-head">
                 <div class="table-cell first-cell">
-                    <h1>TiTle</h1>
+                    <h1>Title</h1>
                 </div>
                 <div class="table-cell">
                     <h1>Category</h1>
@@ -39,7 +39,7 @@
                     </h2>
                 </div>
                 <div class="table-cell">
-                    <p><%=post[i].category%></p>
+                    <p style="color:black;font-size:15px"><%=post[i].category%></p>
                 </div>
              
             </div>
@@ -50,7 +50,8 @@
           
     
             
-    </div>   
+    </div> 
+    
 
 </body>
 </html>
