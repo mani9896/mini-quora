@@ -82,6 +82,7 @@ router.post("/newpost", upload.array("image"), async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   var id = req.params.id;
+
   await db.query(
     "SELECT POST.post_id,title,text,url FROM POST,IMAGES WHERE POST.post_id=IMAGES.post_id AND POST.post_id = ?",
     id,
