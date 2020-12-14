@@ -22,6 +22,9 @@
                 <div class="table-cell">
                     <h1>Category</h1>
                 </div>
+                <div class="table-cell">
+                    <h1>DELETE</h1>
+                </div>
             </div>
          <!--============== ATTRIBUTE ROW ENDED AFTER THIS VALUES ROWS STARTS ========================-->   
         <!--====================== THIS IS THE ONE ROW OF THE TABLE ==================================-->    
@@ -40,6 +43,11 @@
                 </div>
                 <div class="table-cell">
                     <p style="color:black;font-size:15px"> <%=post[i].category%></p>
+                </div>
+                <div class="table-cell">
+                    <a href="/delete/<%=post[i].post_id%>">
+                    <p style="color:red;font-size:15px"> <button>DELETE</button></p>
+                    </a>
                 </div>
              
             </div>

@@ -88,6 +88,34 @@ app.get("/myposts", checkifLogged, async (req, res) => {
   );
 });
 
+app.get("/delete/:id", async (req, res) => {
+  var id = req.params.id;
+  console.log(id);
+  await db.query(
+    "DELETE FROM POST WHERE POST.post_id = ?",
+    id,
+    async (err, result, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("POST DELETD");
+        await db.query(
+          "DELETE FROM IMAGES WHERE IMAGES.post_id = ?",
+          id,
+          async (err, field, results) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("Images deleted");
+              res.redirect("/myposts");
+            }
+          }
+        );
+      }
+    }
+  );
+});
+
 app.use("/post", require("./routes/post"));
 
 io.on("connection", function (socket) {
