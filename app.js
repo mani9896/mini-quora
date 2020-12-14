@@ -37,7 +37,6 @@ app.get("/", async (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        console.log(req.session);
         res.render("Home", {
           posts: result,
           msg: msg,
@@ -60,9 +59,7 @@ app.get("/pick/:category", checkifLogged, async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
         var len = 100 / result.length;
-        console.log(result);
         res.render("category", { post: result, logged: req.session.admin });
       }
     }
@@ -79,10 +76,37 @@ app.get("/myposts", checkifLogged, async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
         var len = 100 / result.length;
-        console.log(result);
+
         res.render("mypost", { post: result, logged: req.session.admin });
+      }
+    }
+  );
+});
+
+app.get("/delete/:id", async (req, res) => {
+  var id = req.params.id;
+  console.log(id);
+  await db.query(
+    "DELETE FROM POST WHERE POST.post_id = ?",
+    id,
+    async (err, result, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("POST DELETD");
+        await db.query(
+          "DELETE FROM IMAGES WHERE IMAGES.post_id = ?",
+          id,
+          async (err, field, results) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("Images deleted");
+              res.redirect("/myposts");
+            }
+          }
+        );
       }
     }
   );
