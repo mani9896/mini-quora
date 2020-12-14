@@ -86,7 +86,6 @@ router.post("/login", checkIfRegister, async (req, res) => {
       var isMatch = await bcrypt.compare(req.body.password, result[0].password);
       if (isMatch) {
         isLogged = true;
-        console.log(result);
         req.session.name = result[0].name;
         req.session.user = result[0].id;
         req.session.admin = true;

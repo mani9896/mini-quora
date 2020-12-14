@@ -89,7 +89,6 @@ router.get("/:id", async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
         var len = 100 / result.length;
 
         res.render("blog", { post: result, logged: req.session.admin });
